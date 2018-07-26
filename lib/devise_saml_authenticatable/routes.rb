@@ -1,6 +1,8 @@
 ActionDispatch::Routing::Mapper.class_eval do
   protected
   def devise_saml_authenticatable(mapping, controllers)
+    return unless Devise.generate_default_routes
+
     resource :session, :only => [], :controller => controllers[:saml_sessions], :path => "" do
       get :new, :path => "saml/sign_in", :as => "new"
       post :create, :path=>"saml/auth"

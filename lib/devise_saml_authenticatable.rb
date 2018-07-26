@@ -23,6 +23,10 @@ module Devise
   mattr_accessor :saml_logger
   @@saml_logger = true
 
+  # Generate default routes
+  mattr_accessor :generate_default_routes
+  @@generate_default_routes = true
+
   # Add valid users to database
   mattr_accessor :saml_create_user
   @@saml_create_user = false
